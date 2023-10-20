@@ -1,14 +1,19 @@
-const images = [
-  {
-    url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'White and Black Long Fur Cat',
-  },
-  {
-    url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
-  },
-  {
-    url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Group of Horses Running',
-  },
-];
+const loginForm = document.querySelector('.login-form');
+
+loginForm.addEventListener('submit', function (event) {
+  event.preventDefault(); // Передбачаємо перезавантаження сторінки
+
+  const formData = new FormData(event.target); // Отримуємо дані форми
+
+  const formDataObject = {};
+  formData.forEach((value, key) => {
+    formDataObject[key] = value;
+  });
+
+  if (formDataObject.email && formDataObject.password) {
+    console.log(formDataObject); // Виводимо об'єкт із введеними даними в консоль
+    event.target.reset(); // Очищаємо значення полів форми
+  } else {
+    alert('All fields must be filled in.');
+  }
+});
