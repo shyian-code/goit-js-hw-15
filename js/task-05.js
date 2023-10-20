@@ -10,6 +10,10 @@ createButton.addEventListener('click', () => {
 
 destroyButton.addEventListener('click', destroyBoxes);
 
+destroyButton.addEventListener('click', () => {
+  destroyBoxes();
+});
+
 function createBoxes(amount) {
   const initialSize = 30;
   let html = '';
@@ -32,3 +36,4 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, '0')}`;
 }
+
